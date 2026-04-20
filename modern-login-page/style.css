@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input,
+button,
+label {
+    font: inherit;
+    font-size: 100%;
+}
+
+/* ── Outer wrapper ── */
+.page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* ── The card (two-column flex) ── */
+form {
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Left dark decorative panel ── */
+.decoration {
+    width: 340px;
+    min-height: 580px;
+    background-color: #111111;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hex-pattern {
+    position: absolute;
+    inset: 0;
+}
+
+/* ── Right white form panel ── */
+.sign-in {
+    width: 420px;
+    min-height: 580px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 48px 40px;
+}
+
+/* ── Logo ── */
+.logo {
+    margin-bottom: 16px;
+}
+
+/* ── Heading block ── */
+.text {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.text h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.text p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* ── Floating-label field ── */
+.field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.field input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
+    padding: 18px 0 6px;   /* top padding leaves room for the floating label */
+    background: transparent;
+    outline: none;
+    font-size: 0.97rem;
+    color: #111;
+    transition: border-color 0.25s;
+}
+
+.field label {
+    position: absolute;
+    left: 0;
+    top: 18px;             /* sits at same baseline as placeholder would */
+    font-size: 0.97rem;
+    color: #999;
+    pointer-events: none;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+/* When input is focused OR has content, float the label up */
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Active input underline turns blue */
+.field input:focus {
+    border-bottom-color: #5b5bde;
+}
+
+/* Hide the browser placeholder (we use the label instead) */
+.field input::placeholder {
+    color: transparent;
+}
+
+/* ── Submit button ── */
+.btn-wrapper {
+    width: 100%;
+    margin-top: 8px;
+}
+
+button[type="submit"] {
+    background-color: #5b5bde;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 26px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #4848c2;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.97);
+}
