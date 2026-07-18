@@ -1,0 +1,82 @@
+/* ---- Dark fantasy theme ---- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(circle at top, #1a1224 0%, #0a0710 70%);
+  color: #e8dcc4;
+  font-family: "Georgia", "Times New Roman", serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  padding: 40px 30px;
+  border: 2px solid #5c3a21;
+  border-radius: 12px;
+  background: rgba(20, 12, 25, 0.85);
+  box-shadow: 0 0 25px rgba(120, 60, 200, 0.35);
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #d9b96a;
+  text-shadow: 0 0 8px rgba(217, 185, 106, 0.6);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #cfc2a8;
+  margin-bottom: 30px;
+}
+
+.start-btn {
+  font-family: inherit;
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border: 2px solid #d9b96a;
+  border-radius: 8px;
+  background: #2a1a35;
+  color: #d9b96a;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  letter-spacing: 0.5px;
+}
+
+.start-btn:hover {
+  background: #d9b96a;
+  color: #1a1224;
+  box-shadow: 0 0 15px rgba(217, 185, 106, 0.8);
+  transform: translateY(-2px);
+}
+
+.start-btn:active {
+  transform: translateY(0);
+}
+
+.results {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 1px solid #5c3a21;
+  text-align: left;
+  white-space: pre-line;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e8dcc4;
+}
+
+.hidden {
+  display: none;
+}
