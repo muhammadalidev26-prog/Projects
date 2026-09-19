@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ATS</title>
+    <link rel="shortcut icon" href="favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About <abbr title="Aliza's Taco Shop">ATS</abbr></a></li>
+                <li><a href="index.html#menu">Our Menu</a></li>
+                <li><a href="hours.html">Store Hours</a></li>
+            </ul>
+        </nav>
+        <figure>
+            <img src="images/delicious_tacos.png" alt="Tacos Tray" title="We love Tacos Tray!" width="400" height="267">
+            <figcaption>Tacos Tray</figcaption>
+        </figure>
+    </header>
+
+    <main>
+        <h2>Contact Form</h2>
+        <section>
+            <form action="https://httpbin.org/get" method="get">
+                <fieldset>
+                    <legend>Send us a message</legend>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </p>
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </p>
+                    <p>
+                        <label for="message">Your Message:</label><br>
+                        <textarea name="message" id="message" rows="5" placeholder="Enter your message here" required></textarea>
+                    </p>
+                    <p>
+                        <button type="submit">Send Message</button>
+                        <button type="reset">Reset</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Our Location</h2>
+            <address>
+                898 Taco Temptation Lane, Suite T<br>
+                Kansas City, MO 89811-555<br><br>
+                Phone: <a href="tel:+923018924892">+92 301 892 4892</a>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aliza's Taco Shop. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
+

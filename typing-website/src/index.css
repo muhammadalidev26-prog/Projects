@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 10%;
+    --foreground: 220 10% 75%;
+
+    --card: 220 13% 13%;
+    --card-foreground: 220 10% 80%;
+
+    --popover: 220 13% 13%;
+    --popover-foreground: 220 10% 80%;
+
+    --primary: 160 60% 50%;
+    --primary-foreground: 220 13% 10%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 220 10% 70%;
+
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 200 80% 55%;
+    --accent-foreground: 220 13% 10%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 160 60% 50%;
+
+    --radius: 0.5rem;
+
+    --typing-correct: 160 60% 50%;
+    --typing-error: 0 70% 55%;
+    --typing-cursor: 45 100% 60%;
+    --typing-pending: 220 10% 30%;
+
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 220 10% 65%;
+    --sidebar-primary: 160 60% 50%;
+    --sidebar-primary-foreground: 220 13% 10%;
+    --sidebar-accent: 220 13% 14%;
+    --sidebar-accent-foreground: 220 10% 80%;
+    --sidebar-border: 220 13% 16%;
+    --sidebar-ring: 160 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+  }
+}
+
+@layer components {
+  .typing-char-correct {
+    color: hsl(var(--typing-correct));
+  }
+  .typing-char-error {
+    color: hsl(var(--typing-error));
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--typing-error));
+  }
+  .typing-char-pending {
+    color: hsl(var(--typing-pending));
+  }
+  .typing-char-current {
+    border-left: 2px solid hsl(var(--typing-cursor));
+    animation: blink 1s step-end infinite;
+    margin-left: -1px;
+    padding-left: 1px;
+  }
+  .typing-line {
+    @apply leading-relaxed;
+    min-height: 1.75em;
+  }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.animate-count-up {
+  animation: countUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

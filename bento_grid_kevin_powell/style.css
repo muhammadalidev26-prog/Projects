@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400 500;
+  src: url("../assets/fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 400 500;
+  src: url("../assets/fonts/DMSans-Italic-VariableFont_opsz,wght.ttf");
+}
+
+:root {
+  --primary-subdued: hsl(254, 88%, 90%);
+  --primary-base: hsl(256, 67%, 59%);
+  --accent-subdued: hsl(31, 66%, 93%);
+  --accent-base: hsl(39, 100%, 71%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 96%);
+  --black: hsl(0, 0%, 7%);
+
+  --fs-reg: 1.25rem;
+
+  --fs-md: 2rem;
+  --fs-lg: 3rem;
+  --fs-xl: 4rem;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  figure {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@layer base {
+  html {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.3;
+  }
+
+  body {
+    margin: 32px;
+    color: var(--black);
+    font-size: var(--fs-reg);
+    background: var(--off-white);
+  }
+
+  h1,
+  h2 {
+    color: var(--heading-foreground, inherit);
+    font-size: var(--heading-font-size, var(--fs-md));
+    line-height: 1;
+    text-wrap: balance;
+
+    span {
+      display: var(--heading-span-display, inline);
+      color: var(--heading-span-foreground, var(--black));
+      font-size: var(--heading-span-font-size, inherit);
+      font-style: var(--heading-span-style, normal);
+      font-weight: var(--heading-span-weight);
+      line-height: var(--heading-span-line-height);
+    }
+  }
+}
+
+@layer layout {
+  .bento-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-inline-size: 1200px;
+    margin-inline: auto;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "four"
+      "five"
+      "six"
+      "seven"
+      "eight";
+
+    @media (width>660px) {
+      grid-template-areas: 
+        'one one'
+        'two three'
+        'four six'
+        'four seven'
+        'five eight'
+    }
+
+    @media (width>960px) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "seven one one four"
+        "seven one one four"
+        "seven two three four"
+        "eight two three four"
+        "eight six five five"
+        "eight six five five";
+    }
+  }
+
+  .card {
+    color: var(--card-foreground, var(--black));
+    background-color: var(--card-bg, var(--white));
+    padding: var(--card-padding, 2rem);
+    border-radius: var(--card-border-radius, 0.8rem);
+    overflow: clip;
+
+    display: grid;
+    gap: var(--card-gap, 32px);
+    align-content: var(--card-vertical-alignment, start);
+    align-items: var(--card-vertical-alignment, start);
+    justify-items: var(--card-horizontal-alignment, start);
+    text-align: var(--card-horizontal-alignment, start);
+  }
+
+  /* Ensure images shrink if the grid cell gets too small */
+
+  .bento-grid img {
+    max-width: var(--card-image-width, 100%);
+    width: var(--card-image-width, 100%);
+    order: var(--card-image-order);
+  }
+
+  .hero-section {
+    --heading-font-size: var(--fs-xl);
+    --heading-span-foreground: var(--accent-base);
+    --card-foreground: var(--white);
+    --card-bg: var(--primary-base);
+    --card-padding: 48px;
+    --card-horizontal-alignment: center;
+    --card-gap: 1rem;
+
+    grid-area: one;
+
+    img {
+      --card-image-width: 75%;
+
+      @media (width > 960px) {
+        --card-image-width: 45%;
+      }
+    }
+  }
+
+  .second-card {
+    --card-image-order: -1;
+
+    grid-area: two;
+
+    /* Fixing image shadow issue in asset*/
+    img {
+      filter: drop-shadow(0 0 1rem hsla(0 0% 0% / 0.125));
+      border-radius: 340px;
+    }
+
+    @media (width > 960px) {
+      --card-image-width: 150%;
+    }
+  }
+
+  .third-card {
+    --card-bg: var(--accent-base);
+
+    grid-area: three;
+
+    img {
+      --card-image-width: 75%;
+      margin-bottom: -55px;
+
+      @media (width > 960px) {
+        --card-image-width: 100%;
+        margin-bottom: -100px;
+      }
+    }
+  }
+
+  .fourth-card {
+    --card-bg: var(--primary-subdued);
+    --card-horizontal-alignment: center;
+
+    grid-area: four;
+
+    @media (width > 960px) {
+      --card-horizontal-alignment: start;
+      --card-image-width: 180%;
+      --card-vertical-aligment: center;
+    }
+  }
+
+  .fifth-card {
+    --card-image-order: -1;
+    --card-bg: var(--primary-base);
+    --card-foreground: var(--white);
+    --card-horizontal-alignment: center;
+    --card-image-width: 80%;
+
+    grid-area: five;
+
+    @media (width > 960px) {
+      --card-gap: 0px;
+      --card-image-width: 100%;
+      --card-vertical-alignment: center;
+      --card-horizontal-alignment: start;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .sixth-card {
+    --heading-font-size: var(--fs-xl);
+
+    grid-area: six;
+
+    --card-image-width: 60%;
+
+    --heading-span-display: block;
+    --heading-span-font-size: var(--fs-reg);
+    --heading-span-weight: lighter;
+    --heading-span-line-height: 2;
+
+    @media (width > 960px) {
+      --card-image-width: 80%;
+    }
+  }
+
+  .seventh-card {
+    --card-bg: var(--accent-subdued);
+    --card-image-width: 60%;
+
+    grid-area: seven;
+
+    --heading-span-foreground: var(--primary-base);
+    --heading-span-style: italic;
+
+    @media (width > 960px) {
+      --card-image-width: 90%;
+      --card-vertical-alignment: center;
+    }
+  }
+
+  .eighth-card {
+    --card-bg: var(--accent-base);
+    --card-image-width: 60%;
+
+    grid-area: eight;
+
+    @media (width > 960px) {
+      --card-image-width: 105%;
+      --card-vertical-alignment: center;
+    }
+  }
+}
+
+@layer utilities {
+  .visually-first {
+    order: -1;
+  }
+}

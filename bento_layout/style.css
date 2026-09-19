@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "DMSans";
+  src: url("assets/fonts/DMSans-VariableFont_opsz,wght.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: rgb(240, 236, 236);
+  /* fallback stack in case the local font file fails to load */
+  font-family: "DMSans", "Segoe UI", Roboto, sans-serif;
+}
+
+.parent {
+  display: grid;
+  gap: 1.5rem;
+
+  /* mobile-first: single column, cards stack in source order */
+  grid-template-columns: 1fr;
+
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+@media (min-width: 40em) {
+  .parent {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'create-content faster-social-media faster-social-media schedule-social-media'
+      'create-content faster-social-media faster-social-media schedule-social-media'
+      'create-content manage-accounts posting-schedule schedule-social-media'
+      'write-using-ai manage-accounts posting-schedule schedule-social-media'
+      'write-using-ai faster-audience grow-followers grow-followers'
+      'write-using-ai faster-audience grow-followers grow-followers';
+
+    width: 80%;
+    margin: 80px auto;
+  }
+}
+
+/* Shared styles for every card. Put here once instead of repeating
+   border-radius/padding/overflow in every single card rule below. */
+.child {
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* First Card */
+.card-ai-social-media {
+  background-color: hsl(256, 67%, 59%);
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  grid-area: faster-social-media;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.card-ai-social-media span {
+  color: hsl(39, 100%, 71%);
+  font-size: 1.2em;
+}
+
+.card-ai-social-media em {
+  font-style: italic;
+}
+
+.card-ai-social-media p:last-child {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.card-ai-social-media img {
+  height: 2rem;
+  margin-bottom: 20px;
+}
+
+
+/* Second Card */
+.card-managing-accounts {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: manage-accounts;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-managing-accounts img {
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Third Card */
+.consistent-posting-schedule {
+  background-color: hsl(39, 100%, 71%);
+  grid-area: posting-schedule;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.consistent-posting-schedule img {
+  height: 120px;
+  object-fit: contain;
+
+  position: absolute;
+  bottom: -50px;
+  left: 60px;
+}
+
+/* Fourth Card */
+.card-schedule-media {
+  background-color: hsl(254, 88%, 90%);
+  grid-area: schedule-social-media;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-schedule-media img {
+  height: 300px;
+  object-fit: cover;
+  position: relative;
+  right: -2em;
+  margin-top: auto;
+}
+
+.card-schedule-media p:last-child {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 12px;
+}
+
+/* Fifth Card */
+.card-grow-followers {
+  background-color: hsl(256, 67%, 59%);
+  color: white;
+  grid-area: grow-followers;
+  font-size: 1.75rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-grow-followers img {
+  height: 130px;
+  object-fit: contain;
+  align-self: flex-end;
+}
+
+/* Sixth Card */
+.card-faster-growth {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: faster-audience;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-faster-growth .stat-figure {
+  font-size: 2.75rem;
+  font-weight: 700;
+}
+
+.card-faster-growth .stat-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: hsl(0, 0%, 40%);
+  margin-bottom: 16px;
+}
+
+.card-faster-growth img {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Seventh Card */
+.card-create-quicker {
+  background-color: hsl(31, 66%, 93%);
+  grid-area: create-content;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 260px;
+}
+
+.card-create-quicker em {
+  color: hsl(256, 67%, 59%);
+  font-style: italic;
+}
+
+
+
+.arrow-doodle {
+  height: 80px;
+  object-fit: contain;
+  align-self: flex-start;
+  /* margin-top: auto; */
+}
+
+/* Eighth Card */
+.card-write-using-ai {
+  background-color: hsl(39, 100%, 71%);
+  grid-area: write-using-ai;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 260px;
+}
+
+.card-write-using-ai img {
+  height: 220px;
+  object-fit: contain;
+  align-self: center;
+  margin-top: auto;
+}
+
+.attribution {
+  text-align: center;
+  padding: 20px 0 40px;
+  font-size: 0.85rem;
+}

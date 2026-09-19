@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Responsive Blog Template</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --bg-color: #f9f9fb;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #2563eb;
+            --border: #e5e7eb;
+            --max-width: 1100px;
+        }
+        
+        html {
+            background-color: var(--bg-color);
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: block;
+            width: 100%;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* Navigation Component */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+        }
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        /* Main Content Grid Component */
+        main {
+            max-width: var(--max-width);
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        /* Feed Layout */
+        .blog-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .post-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .post-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+        .post-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .post-excerpt {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar Element styling */
+        aside {
+            display: block;
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .widget {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .about-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-bottom: 0.75rem;
+        }
+        .category-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Footer layout rules */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            width: 100%;
+            clear: both;
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .footer-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                display: block; 
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+            .blog-feed {
+                margin-bottom: 2rem;
+            }
+            aside {
+                width: 100%;
+                display: block;
+                margin-bottom: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav Component Header -->
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="#">TheInkwell</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Dynamic Block -->
+    <main>
+        <!-- Primary Articles Layout Column -->
+        <section class="blog-feed">
+            <article class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                <div class="post-content">
+                    <div class="post-meta">Published on July 23, 2026 • By Alex Stone</div>
+                    <h2 class="post-title"><a href="#">Designing for the Future of the Web</a></h2>
+                    <p class="post-excerpt">Discover how semantic architecture, modern responsive layouts, and user-centric systems are driving the next paradigm of web aesthetics.</p>
+                    <a href="#" class="read-more">Read Entry →</a>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);"></div>
+                <div class="post-content">
+                    <div class="post-meta">Published on July 18, 2026 • By Sarah Jenkins</div>
+                    <h2 class="post-title"><a href="#">Minimalist Typography Layouts</a></h2>
+                    <p class="post-excerpt">An exploration into whitespace, scale, and typographic hierarchy that transforms messy interfaces into pristine reading spaces.</p>
+                    <a href="#" class="read-more">Read Entry →</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Dynamic Secondary Sidebar Panel -->
+        <aside>
+            <div class="sidebar">
+                <div class="widget">
+                    <h3 class="widget-title">The Author</h3>
+                    <div class="about-photo"></div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">I write weekly breakdowns regarding clean software code patterns and functional minimalist web engineering designs.</p>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#">Web Design (12)</a></li>
+                        <li><a href="#">CSS Architecture (8)</a></li>
+                        <li><a href="#">User Experience (19)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer System Component -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 TheInkwell. Created using semantic HTML5 markup layouts.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">RSS Feed</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

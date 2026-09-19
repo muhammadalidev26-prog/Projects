@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light Gray */
+    color: #333; /* Dark Gray */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #e67e22; /* Orange */
+    padding: 20px;
+    border-bottom: 5px solid #d35400; /* Darker Orange */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #fff; /* White */
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block; /* Make menu items block-level for better control */
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff; /* White */
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f2f2f2; /* Light Gray */
+}
+
+/* Image Styling */
+figure {
+    margin: 20px auto;
+    width: 100%; /* Make image responsive */
+    max-width: 400px; /* Limit image width */
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 1rem;
+    color: #333; /* Dark Gray */
+    text-align: center; /* Center the caption */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%; /* Make table responsive */
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #f2f2f2; /* Light Gray */
+    border: 2px solid #d35400; /* Darker Orange */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #d35400; /* Darker Orange */
+    text-align: center;
+}
+
+th {
+    background-color: #e67e22; /* Orange */
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { /* For tablets and smaller */
+    nav ul li {
+        display: block; /* Stack menu items vertically */
+        margin: 10px 0;
+    }
+
+    figure {
+        max-width: 90%; /* Make image wider on smaller screens */
+    }
+
+    table {
+        font-size: 14px; /* Reduce font size on smaller screens */
+    }
+
+    /* Image adjustments for smaller screens */
+    figure img {
+        width: 100%; /* Make image fill the width of the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #e67e22; /* Orange */
+    color: #fff; /* White */
+    padding: 10px;
+    text-align: center;
+    position: fixed; /* Fix footer to the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+header nav ul li abbr {
+    text-decoration: none;
+}
+
