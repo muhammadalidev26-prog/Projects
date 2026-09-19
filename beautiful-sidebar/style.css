@@ -7,7 +7,7 @@
 }
 .main_box {
     position: relative;
-    background: url("images/side.jpg") center no-repeat;
+    background: url("images/bg.jpg") center no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
