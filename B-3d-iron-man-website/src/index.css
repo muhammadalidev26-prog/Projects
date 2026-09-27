@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-void: #04060c;
+  --color-abyss: #070b14;
+  --color-panel: #0a101c;
+  --color-arc: #5fd7ff;
+  --color-arc-dim: #237a97;
+  --color-gold: #d9a428;
+  --color-gold-bright: #f2c14e;
+  --color-crimson: #e02631;
+  --color-crimson-deep: #8e1418;
+
+  --animate-spin-slow: spin-slow 14s linear infinite;
+  --animate-spin-slower: spin-slow 34s linear infinite;
+  --animate-pulse-core: pulse-core 3.2s ease-in-out infinite;
+  --animate-flicker: flicker 5s linear infinite;
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulse-core {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  @keyframes flicker {
+    0%, 91%, 94%, 98%, 100% { opacity: 1; }
+    92% { opacity: 0.35; }
+    96% { opacity: 0.6; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #04060c;
+    color: #ffffff;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(224, 38, 49, 0.45);
+    color: #ffffff;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #04060c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2536;
+    border-radius: 8px;
+    border: 2px solid #04060c;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e02631;
+  }
+}
+
+/* ---- custom utilities ---- */
+@utility text-glow-red {
+  text-shadow: 0 0 18px rgba(224, 38, 49, 0.65), 0 0 80px rgba(224, 38, 49, 0.35);
+}
+@utility text-glow-arc {
+  text-shadow: 0 0 18px rgba(95, 215, 255, 0.6), 0 0 80px rgba(95, 215, 255, 0.3);
+}
+@utility text-glow-gold {
+  text-shadow: 0 0 18px rgba(242, 193, 78, 0.55), 0 0 80px rgba(242, 193, 78, 0.3);
+}
+
+/* ---- helper classes ---- */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(255, 255, 255, 0.018) 3px,
+    rgba(255, 255, 255, 0.018) 4px
+  );
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(95, 215, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 215, 255, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
