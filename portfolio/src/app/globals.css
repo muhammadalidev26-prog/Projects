@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-ink font-sans text-fg antialiased; }
+::selection { background: theme("colors.accent"); color: theme("colors.ink"); }
+:focus-visible { outline: 2px solid theme("colors.accent"); outline-offset: 3px; }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .section { @apply py-20 sm:py-28; }
+  .h2 { @apply text-3xl font-bold tracking-tight sm:text-4xl; }
+  .input { @apply w-full rounded-md border border-line bg-surface px-3 py-2.5 text-fg placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent; }
+  .btn { @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-2.5 font-semibold text-ink transition hover:brightness-110 disabled:opacity-60; }
+  .btn-ghost { @apply inline-flex items-center justify-center rounded-md border border-line px-5 py-2.5 font-semibold text-fg transition hover:border-accent; }
+  .chip { @apply rounded border border-line px-2 py-0.5 font-mono text-xs text-muted; }
+}
+
+.caret { display: inline-block; width: 0.55ch; height: 1.1em; vertical-align: text-bottom; background: theme("colors.accent"); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .caret { animation: none; }
+}
